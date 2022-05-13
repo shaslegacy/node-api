@@ -71,5 +71,19 @@ module.exports = {
             }
             return callback(null, results[0])
         })
-    }
+    },
+
+    storeRefreshToken: (token, id, callback) => {
+        dbconn.query(`update users set token=?, tokenAdded=? where id = ? `,
+            [
+                token,
+                new Date(),
+                id
+            ], (err, results, fields) => {
+                if (err) {
+                    return callback(err)
+                }
+                return callback(null, results)
+            })
+    },
 }

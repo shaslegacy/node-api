@@ -1,0 +1,98 @@
+### User sing up endpoint
+POST http://localhost:5000/api/v1/user
+Content-Type: application/json
+
+{
+    "first_name": "Rohit",
+    "last_name": "Singh",
+    "gender": "M",
+    "email": "e2@e.com1",
+    "password": "secret222",
+    "mobile": "9999999999"
+}
+### User sing in endpoint
+POST http://localhost:5000/api/v1/user/login
+Content-Type: application/json 
+
+{
+    "email": "e2@e.com1",
+     "password": "secret222"   
+}
+
+### Get a user profile endpoint
+GET  http://localhost:5000/api/v1/user
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjcsImZpcnN0X25hbWUiOiJSb2hpdCIsImxhc3RfbmFtZSI6IlNpbmdoIiwiZ2VuZGVyIjoiTSIsImVtYWlsIjoiZTJAZS5jb20xIiwibW9iaWxlIjoiOTk5OTk5OTk5OSIsImNyZWF0ZWRieSI6bnVsbCwiY3JlYXRlZF9kYXRlIjoiMjAyMi0wNS0wN1QxNTo1Mzo1My4wMDBaIiwidG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKeVpYTjFiSFFpT25zaWFXUWlPamNzSW1acGNuTjBYMjVoYldVaU9pSlNiMmhwZENJc0lteGhjM1JmYm1GdFpTSTZJbE5wYm1kb0lpd2laMlZ1WkdWeUlqb2lUU0lzSW1WdFlXbHNJam9pWlRKQVpTNWpiMjB4SWl3aWJXOWlhV3hsSWpvaU9UazVPVGs1T1RrNU9TSXNJbU55WldGMFpXUmllU0k2Ym5Wc2JDd2lZM0psWVhSbFpGOWtZWFJsSWpvaU1qQXlNaTB3TlMwd04xUXhOVG8xTXpvMU15NHdNREJhSWl3aWRHOXJaVzRpT2lKbGVVcG9Za2RqYVU5cFNrbFZla2t4VG1sSmMwbHVValZqUTBrMlNXdHdXRlpEU2prdVpYbEtlVnBZVGpGaVNGRnBUMjV6YVdGWFVXbFBhbU56U1cxYWNHTnVUakJZTWpWb1lsZFZhVTlwU2xOaU1taHdaRU5KYzBsdGVHaGpNMUptWW0xR2RGcFRTVFpKYkU1d1ltMWtiMGxwZDJsYU1sWjFXa2RXZVVscWIybFVVMGx6U1cxV2RGbFhiSE5KYW05cFdsUktRVnBUTldwaU1qQjRTV2wzYVdKWE9XbGhWM2hzU1dwdmFVOVVhelZQVkdzMVQxUnJOVTlUU1hOSmJVNTVXbGRHTUZwWFVtbGxVMGsyWW01V2MySkRkMmxaTTBwc1dWaFNiRnBHT1d0WldGSnNTV3B2YVUxcVFYbE5hVEIzVGxNd2QwNHhVWGhPVkc4eFRYcHZNVTE1TkhkTlJFSmhTV2wzYVdSSE9YSmFWelJwVDJsSmFVeERTakJpTW5Sc1ltdEdhMXBIVm10SmFtOXBUVVJCZDAxRE1IZE5RekIzVFVOQmQwMUViM2ROUkc5M1RVTktPVXhEU25CWldGRnBUMnBGTWs1VVJUVk9SR3N3VG5wbmMwbHRWalJqUTBrMlRWUlpNVTVFVlRCTlZGRXpUMGd3TG5kd1QzVkRhSEZ4T1RWcU1FTjNTelUzVVc5Q1JHTXRjVWhxVVU1WWQwaGpNMmhYYjE5UmNEVjZTMUVpTENKMGIydGxia0ZrWkdWa0lqb2lNakF5TWkwd05TMHdOMVF4T0RvMU1Ub3hPUzR3TURCYUluMHNJbWxoZENJNk1UWTFNVGswT1Rjek1Td2laWGh3SWpveE5qVTBOVFF4TnpNeGZRLjRGbno2TjdnZmNwb0YtNUI2eHE1c0xsTUxBSWM4SVlpX0JWbmFHVElyWm8iLCJ0b2tlbkFkZGVkIjoiMjAyMi0wNS0wN1QxODo1NTozMi4wMDBaIn0sImlhdCI6MTY1MTk1MDkyNiwiZXhwIjoxNjUxOTUxODI2fQ.akWCgqcBua75jJsZpH9IoHhMquA_BO_ApvWZS8BqcqY
+
+
+###Token routers
+
+### Get refreshed token
+GET http://localhost:5000/v1/tokens
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjA5NjY5NDcwLCJleHAiOjE2MTIyNjE0NzB9.C92NUOBb-MmyOx2Ipw-w-BjEafSuCot83Cwl3Bmr8Oc
+
+
+# eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjA0OTc0MTcyLCJleHAiOjE2MDQ5NzUwNzJ9.wvNH_c-yaWd05N6sPx3Y47AtJIIP9dXNCOIyVEjUO88
+
+
+#### Password reset request endpoints
+POST http://localhost:5000/api/v1/user/reset-password
+Content-Type: application/json 
+
+{
+    "email": "e2@e.com"
+}
+#### Update new password endpoint
+PATCH  http://localhost:5000/api/v1/user/reset-password
+Content-Type: application/json 
+
+{
+    "email": "e2@e.com",
+    "pin": "674783",
+    "newPassword": "password"
+}
+
+#### user logout endpoint
+DELETE http://localhost:5000/api/v1/user/logout
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjA5NjcyNzE0LCJleHAiOjE2MDk3NTkxMTR9.suW36ge23AtBke_-IG8gQOZEuUw_GxbqL177GzEmytM
+ 
+ 
+###Ticket apis
+
+ 
+### Open new ticket
+POST http://localhost:5000/v1/ticket
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjA5ODkxOTg0LCJleHAiOjE2MDk5NzgzODR9.7cUfpK_RF68a-xfxVXuet4PWVqwToUPyDXpupFlCQNI
+Content-Type: application/json 
+
+{
+ "subject": "Form Issue",
+  "sender": "Prem",
+  "message": "1 Contact form not working. please fix it as soon as possible" 
+}
+
+###Get all the tickets
+GET http://localhost:5000/v1/ticket
+Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjA5ODkyOTMxLCJleHAiOjE2MDk5NzkzMzF9.sPqRPk6nKGpS5tMK0uYIJv778CWBfyn3zm_Y9iTS4Iw
+
+### Get single ticket
+GET http://localhost:5000/v1/ticket/5fcd969896b6cb084ceafd19
+Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjA5ODkxOTg0LCJleHAiOjE2MDk5NzgzODR9.7cUfpK_RF68a-xfxVXuet4PWVqwToUPyDXpupFlCQNI
+
+### Reply message to the ticket
+PUT http://localhost:5000/v1/ticket/5fcd969896b6cb084ceafd19
+Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjA5ODkxOTg0LCJleHAiOjE2MDk5NzgzODR9.7cUfpK_RF68a-xfxVXuet4PWVqwToUPyDXpupFlCQNI
+Content-Type: application/json 
+
+{ 
+    "message": "this is the 222 reply", 
+    "sender": "Prem" 
+}
+
+### Close the ticket
+PATCH http://localhost:5000/v1/ticket/close-ticket/5fcd969896b6cb084ceafd19
+Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjA5OTA0NjQyLCJleHAiOjE2MDk5OTEwNDJ9.hRSVE-AFfMnsnxgCouqV_W2U5A2nfVLOBClPE59GGls
+
+### Delete the ticket
+DELETE  http://localhost:5000/v1/ticket/5fcd969896b6cb084ceafd19
+Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjA5ODkxOTg0LCJleHAiOjE2MDk5NzgzODR9.7cUfpK_RF68a-xfxVXuet4PWVqwToUPyDXpupFlCQNI
+

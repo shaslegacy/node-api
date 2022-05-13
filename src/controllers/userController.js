@@ -1,6 +1,8 @@
-const {createUser, getUser, getUserById, updateUser, deleteUser, getUserByEmail} = require('../models/userModel');
+const {createUser, getUser, getUserById, updateUser, deleteUser, getUserByEmail, storeRefreshToken} = require('../models/userModel');
 const { sendMailToUser } = require('../services/sendemail')
 const { genSaltSync, hashSync, compareSync } = require("bcrypt");
+const { createAccessJWT, createRefreshJWT } = require("../helper/jwt.helper")
+const { setJWT, getJWT } = require("../helper/redis.helper");
 
 const { sign } = require('jsonwebtoken')
 
@@ -29,7 +31,7 @@ module.exports = {
     getUser: (req, res) => {
         getUser((err, results) => {
             if(err){
-                console.loh(err)
+                console.log(err)
                 return res.status(500).json({
                     success:0,
                     data: "Database connection Error"
@@ -132,13 +134,42 @@ module.exports = {
             const result = compareSync(body.password, results.password);
             if (result) {
               results.password = undefined;
-              const jsontoken = sign({ result: results }, "qwe1234", {
-                expiresIn: "1h"
-              });
+
+                
+            //   const accessToken =  createAccessJWT(results, results.id);
+              const accessToken = createAccessJWT(results, `${results.id}`);
+              console.log(accessToken);
+
+            //   const refreshToken = createRefreshJWT(results.email, `${results.id}`);
+
+            //   const accessToken = sign({
+            //               result: results
+            //           }, process.env.JWT_ACCESS_TOKEN, {
+            //     expiresIn: "15m"
+            //   });
+
+                setJWT(accessToken, results.id);
+
+            //   const refreshToken = sign({
+            //               result: results
+            //           }, process.env.JWT_REFRESH_SECRET, {
+            //     expiresIn: "30d"
+            //   });
+
+              
+
+              // refresh token store in user db
+                //   storeRefreshToken(refreshToken, results.id, (err, results) => {
+                //       if (err) {
+                //           console.log(err)
+                //       }
+                //   })
+              
               return res.json({
-                success: 1,
-                message: "login successfully",
-                token: jsontoken
+                status: "success",
+                message: "Login Successfully",
+                accessToken
+                // refreshToken
               });
             } else {
               return res.json({
@@ -150,3 +181,13 @@ module.exports = {
     }
 }
 
+exports.login = (req, res) => {
+
+   EmployeeModel.getAllemployee((err, employees) => {
+
+        if (err)
+            res.send(err);
+        console.log('Employee ', employees)
+        res.send(employees)
+    }) 
+}
